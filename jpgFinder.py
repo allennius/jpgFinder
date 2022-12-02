@@ -58,7 +58,7 @@ def main():
 
     # add all files in folder to list with full path to file
     if isFolder:
-        folder = os.listdir(argPath)
+        # folder = os.listdir(argPath)
         inFiles = glob.glob(os.path.join(argPath, '*'))
 
         # user sort answer == True -> sort
@@ -163,10 +163,15 @@ def findHeader(inFiles):
                         f.write(data[:])
                 bufferCounter += 1
 
+        # end of each file
         if isHeader:
             if answer == 'build':
                 f.close()
             isHeader = False
+
+    # end of last file
+    if fileCreated:
+        f.close()
 
 def sortOrNo(answer):
 
